@@ -32,6 +32,8 @@ public class Start { // Klasse
     private static int andereZahl = 100; // Klassenvariable, gehört dem Bauplan
 
 
+    // Das ist aber ein schönes Projekt
+
     // 0 Das, 1 ist, 2 das
     public static void /* bla bla bla */ main(String[] args) { // (Klassen-) Methode, werden auf dem Bauplan ausgeführt
 
