@@ -17,6 +17,7 @@ public class DiceCupTest {
         System.out.println();
 
         cup = new DiceCup(10);
+
         int[] res = cup.roll(100);
         // String resStr = Arrays.toString(res);
         // System.out.println(resStr);

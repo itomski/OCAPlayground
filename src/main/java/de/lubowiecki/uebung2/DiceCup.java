@@ -6,7 +6,8 @@ public class DiceCup {
 
     private Random rand = new Random();
 
-    private int size;
+    // Muss spätestens im Konstruktor zugeweisen werden und kann sich nachträglich nicht mehr ändern
+    private final int size;
 
     public DiceCup(int size) {
         this.size = size;
@@ -15,6 +16,12 @@ public class DiceCup {
     public DiceCup() {
         this(6);
     }
+
+    /* Default-Konstruktor
+    public DiceCup() {
+        super();
+    }
+    */
 
     public int roll() {
         return rand.nextInt(size) + 1;
