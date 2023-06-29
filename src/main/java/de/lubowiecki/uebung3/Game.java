@@ -53,7 +53,7 @@ public class Game {
                     String[] steps = scanner.next().trim().toLowerCase().split("");
                     for(String step : steps) {
                         bot.move(step); // Bewegung Schritt für Schritt
-                        System.out.println(bot);
+                        //System.out.println(bot); // toString wird automatisch benutzt
                     }
 
                     board.print(); // Zeichnet das Spielfeld
