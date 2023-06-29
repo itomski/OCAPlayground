@@ -6,6 +6,8 @@ public class Bot {
 
     private String name = "Unbekannt";
 
+    private Direction direction = Direction.EAST;
+
     private int xPos;
 
     private int yPos;
@@ -41,18 +43,63 @@ public class Bot {
 
     public boolean move(String step) {
 
-        System.out.println(step);
-        System.out.println(xPos + " " + yPos);
+        switch(step) {
+            case ">": return move(true);
+
+            case "<": return move(false);
+
+            case "r":
+                direction = Compass.turnRight(direction);
+                return true;
+
+            case "l":
+                direction = Compass.turnLeft(direction);
+                return true;
+
+            default:
+                return false;
+        }
+    }
+
+    private boolean move(boolean forward) {
 
         board.set(null, xPos, yPos); // Alte Prosition auf dem Spielfeld entfernen
 
-        switch(step) {
-            case ">":
-                xPos++;
+        switch(direction) {
+            case EAST:
+                if(forward) {
+                    yPos++;
+                }
+                else {
+                    yPos--;
+                }
                 return move();
 
-            case "<":
-                xPos--;
+            case WEST:
+                if(forward) {
+                    yPos--;
+                }
+                else {
+                    yPos++;
+                }
+                return move();
+
+            case SOUTH:
+                if(forward) {
+                    xPos++;
+                }
+                else {
+                    xPos--;
+                }
+                return move();
+
+            case NORTH:
+                if(forward) {
+                    xPos--;
+                }
+                else {
+                    xPos++;
+                }
                 return move();
 
             default:
@@ -78,5 +125,14 @@ public class Bot {
 
     public void setyPos(int yPos) {
         this.yPos = yPos;
+    }
+
+    @Override
+    public String toString() {
+        return "Bot{" +
+                "direction=" + direction +
+                ", xPos=" + xPos +
+                ", yPos=" + yPos +
+                '}';
     }
 }
